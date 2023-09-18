@@ -1,1 +1,17 @@
-<p>breed-list works!</p>
+<section class="breeds">
+  <mat-form-field class="example-full-width">
+    <mat-label>Assignee</mat-label>
+    <input type="text" matInput [formControl]="filter" />
+  </mat-form-field>
+  <div class="breeds__container">
+    <button
+      mat-stroked-button
+      color="primary"
+      class="breeds__item"
+      *ngFor="let breed of breedListFiltered | async"
+      [routerLink]="'/breed/' + breed"
+    >
+      {{ breed }}
+    </button>
+  </div>
+</section>
