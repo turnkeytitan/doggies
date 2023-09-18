@@ -1,1 +1,27 @@
-<p>breed works!</p>
+<article>
+  <mat-card *ngIf="breedImages | async as images" class="breed">
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>{{ params.breed }}</mat-card-title>
+    </mat-card-header>
+    <div class="breed__image-container">
+      <img
+        class="breed__image"
+        mat-card-image
+        *ngFor="let image of images.message"
+        [src]="image"
+      />
+    </div>
+    <mat-card-content *ngIf="breedSubs | async as subs" class="breed__sublist">
+      <button
+        mat-stroked-button
+        color="primary"
+        class="breeds__item"
+        *ngFor="let subbreed of subs.message"
+        [routerLink]="'/breed/' + params.breed + '/' + subbreed"
+      >
+        {{ subbreed }}
+      </button>
+    </mat-card-content>
+  </mat-card>
+</article>

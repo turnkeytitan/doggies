@@ -2,8 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BreedsService } from '../shared/breeds.service';
 import { HttpClientModule } from '@angular/common/http';
-import { Observable, Subscription, map, of } from 'rxjs';
-import { ResponseDTO } from 'src/app/core/responseDTO.interface';
+import { Observable, Subscription, map } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -44,9 +43,6 @@ export class BreedListComponent implements OnDestroy {
         });
       }),
     );
-  }
-  displayFn(user: any): string {
-    return '';
   }
   ngOnDestroy(): void {
     this.$breedList.unsubscribe();

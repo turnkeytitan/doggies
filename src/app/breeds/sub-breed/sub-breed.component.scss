@@ -2,7 +2,7 @@ article {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  .breed{
+  .subbreed{
     max-width: 50rem;
     &__image-container {
       display: flex;
@@ -14,12 +14,6 @@ article {
       max-height: 25rem;
       flex: 1;
       object-fit: cover;
-    }
-    &__sublist {
-      padding: 2rem 0;
-      @media screen and (min-width: 720px) {
-        padding: 2rem 3rem;
-      }
     }
   }
 }

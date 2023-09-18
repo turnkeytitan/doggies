@@ -1,0 +1,17 @@
+<article>
+  <mat-card class="subbreed">
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>{{ params.breed }}</mat-card-title>
+      <mat-card-subtitle>{{ params.subBreed }}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="subbreed__image-container">
+      <img
+        *ngIf="subBreedImg | async as image"
+        class="subbreed__image"
+        mat-card-image
+        [src]="image.message"
+      />
+    </div>
+  </mat-card>
+</article>

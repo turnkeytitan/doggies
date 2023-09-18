@@ -1,32 +1,25 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
 import { BreedCard } from '../shared/breed-card.interface';
 import { EMPTY, Observable } from 'rxjs';
 import { ResponseDTO } from 'src/app/core/responseDTO.interface';
+import { ActivatedRoute } from '@angular/router';
 import { BreedsService } from '../shared/breeds.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-breed',
+  selector: 'app-sub-breed',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-    HttpClientModule,
-    RouterModule,
-    MatButtonModule,
-  ],
+  imports: [CommonModule, HttpClientModule,MatButtonModule, MatCardModule],
   providers: [BreedsService],
-  templateUrl: './breed.component.html',
-  styleUrls: ['./breed.component.scss'],
+  templateUrl: './sub-breed.component.html',
+  styleUrls: ['./sub-breed.component.scss'],
 })
-export class BreedComponent {
+export class SubBreedComponent {
   params: BreedCard;
-  breedImages: Observable<ResponseDTO<string[]>> = EMPTY;
-  breedSubs: Observable<ResponseDTO<string[]>> = EMPTY;
+  subBreedImg: Observable<ResponseDTO<string>> = EMPTY;
   constructor(
     private route: ActivatedRoute,
     private breedsService: BreedsService
@@ -34,9 +27,10 @@ export class BreedComponent {
     this.params = { breed: '' };
     this.route.paramMap.subscribe((params) => {
       const breed = params.get('breed')!;
+      const subBreed = params.get('subbreed')!;
       this.params = { breed };
-      this.breedImages = this.breedsService.getBreedImages(breed);
-      this.breedSubs = this.breedsService.getSubBreeds(breed);
+      this.params.subBreed = subBreed;
+      this.subBreedImg = this.breedsService.getSubBreedImages(breed, subBreed);
     });
   }
 }
