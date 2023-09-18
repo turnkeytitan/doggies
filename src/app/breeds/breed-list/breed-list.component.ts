@@ -42,7 +42,7 @@ export class BreedListComponent implements OnDestroy {
         return this.breedList.filter((name) => {
           return name.includes(value);
         });
-      })
+      }),
     );
   }
   displayFn(user: any): string {

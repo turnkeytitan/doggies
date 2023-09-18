@@ -8,7 +8,7 @@ describe('GoBackComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [GoBackComponent]
+      imports: [GoBackComponent],
     });
     fixture = TestBed.createComponent(GoBackComponent);
     component = fixture.componentInstance;

@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './go-back.component.html',
-  styleUrls: ['./go-back.component.scss']
+  styleUrls: ['./go-back.component.scss'],
 })
-export class GoBackComponent {
-
-}
+export class GoBackComponent {}

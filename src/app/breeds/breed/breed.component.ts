@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './breed.component.html',
-  styleUrls: ['./breed.component.scss']
+  styleUrls: ['./breed.component.scss'],
 })
-export class BreedComponent {
-
-}
+export class BreedComponent {}

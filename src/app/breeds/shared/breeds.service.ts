@@ -12,7 +12,7 @@ export class BreedsService {
   constructor(private http: HttpClient) {}
   getAll(): Observable<ResponseDTO<Record<string, string[]>>> {
     return this.http.get<ResponseDTO<Record<string, string[]>>>(
-      `${this.url}breeds/list/all`
+      `${this.url}breeds/list/all`,
     );
   }
 }
